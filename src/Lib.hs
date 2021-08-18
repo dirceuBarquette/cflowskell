@@ -14,7 +14,25 @@ import Datatypes
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
 
--- | This function parses a 'date' field of the 'Entry' type
+toEntriesList :: Entry -> [Entry] -> [Entry]
+toEntriesList e el = el ++ [e]
+
+-- | This function parses th 'description' field of the 'Entry' type
+hasValidDescr :: String -> Bool
+hasValidDescr str = length str < 80 && not (null str)
+
+-- | This function parses the 'opType' field of the 'Entry' type
+hasValidOper :: String -> Bool
+hasValidOper str | str `elem` oPs = True
+                 | otherwise      = False
+                    where oPs = ["Deposit", "Withdraw"]
+
+-- | This function parses the 'value' field of the 'Entry' type
+hasValidValue :: String -> Bool
+hasValidValue str = all isDigit (concat $ splitOn "." str)
+                     && not (null str)
+
+-- | This function parses the 'date' field of the 'Entry' type
 hasValidDate :: String -> Bool
 hasValidDate str = and [ has10chars str
                        , has3fields str
