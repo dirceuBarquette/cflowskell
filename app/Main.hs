@@ -1,6 +1,6 @@
 module Main where
 
-import Lib
+import LibCflowskell 
 
 main :: IO ()
 main = someFunc

@@ -26,7 +26,7 @@ source-repository head
 library
   exposed-modules:
       Datatypes
-      Lib
+      LibCflowskell
   other-modules:
       Paths_cflowskell
   hs-source-dirs:

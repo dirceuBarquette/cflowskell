@@ -1,5 +1,5 @@
-module Lib
-    ( someFunc
+module LibCflowskell
+    ( 
     ) where
 
 import Data.List.Split
@@ -14,6 +14,27 @@ import Datatypes
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
 
+
+-- getEntryFromUser :: IO ()
+-- getEntryFromUser = do
+--    if 
+
+getNonEmptyChar :: IO Char
+getNonEmptyChar = do
+   v <- getChar
+   if isSpace v then getNonEmptyChar else return v
+
+getOption :: String -> IO Int
+getOption lang = do 
+   x <- getNonEmptyChar
+   if isDigit x  then
+      return (digitToInt x)
+   else
+      do newline
+         putStrLn $ if null lang then "Dígito inválido!" else "Invalid digit!"
+         return 9
+
+-- | This function feed a list of the 'Entry' type 
 toEntriesList :: Entry -> [Entry] -> [Entry]
 toEntriesList e el = el ++ [e]
 
