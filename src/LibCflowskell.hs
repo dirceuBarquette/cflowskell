@@ -8,6 +8,7 @@ import Data.Char
    ( digitToInt
    , isDigit
    , isAlphaNum
+   , isSpace
    )
 import Datatypes
 
@@ -30,7 +31,7 @@ getOption lang = do
    if isDigit x  then
       return (digitToInt x)
    else
-      do newline
+      do --newline
          putStrLn $ if null lang then "Dígito inválido!" else "Invalid digit!"
          return 9
 

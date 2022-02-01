@@ -3,4 +3,4 @@ module Main where
 import LibCflowskell 
 
 main :: IO ()
-main = someFunc
+main = undefined -- someFunc
